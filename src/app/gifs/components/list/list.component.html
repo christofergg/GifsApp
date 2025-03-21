@@ -1,7 +1,7 @@
 <div class="grid  grid-cols-2 md:grid-cols-3 gap-4">
   @for (imgItem of images(); track imgItem) {
     <gifs-list-item
-    [image] = imgItem
+    [image] = imgItem.url
     />
   }
 </div>

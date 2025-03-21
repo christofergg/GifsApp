@@ -13,6 +13,7 @@ export class GifsService {
   private http = inject(HttpClient);
 
   trendingGifs = signal<GiphyDTO[]>([])
+  trendingGifsLoading = signal(true);
 
   constructor() {
     this.loadTrendingGifs();
@@ -26,6 +27,7 @@ export class GifsService {
     }).subscribe((response) => {
       const gifs = GiphyDTOMapper.mapGiphyItemToGiphyDTOArray(response.data);
       this.trendingGifs.set(gifs);
+      this.trendingGifsLoading.set(false);
       console.log({gifs});
     });
   }
