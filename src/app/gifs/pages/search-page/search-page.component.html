@@ -1,1 +1,17 @@
-<p>search-page works!</p>
+<h2 class="text-2xl font-bold mt-5">Search a Gif</h2>
+<h3 class="text-sm text-gray-500">Search by name, description or tags</h3>
+
+<section class="flex flex-col gap-4">
+
+  <input type="text"
+  placeholder="Search GIFs"
+  class="mt-3 border border-gray-300 rounded-md p-2"
+  (keyup.enter)="onSearch(txtSearch.value)"
+  #txtSearch
+  />
+
+</section>
+<section class="grid gap-4 mt-5">
+  <gifs-list
+  [images] = "gifsFound()" />
+</section>
