@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { GifsService } from 'src/app/gifs/services/gifs.service';
 
 interface MenuOption {
   label: string,
@@ -15,7 +16,8 @@ interface MenuOption {
   styleUrl: './side-menu-options.component.css'
 })
 export class SideMenuOptionsComponent {
-   menuOptions: MenuOption[] = [
+  gifService = inject(GifsService);
+  menuOptions: MenuOption[] = [
     {
       icon: 'fa-solid fa-chart-line',
       label: 'Trending',
@@ -28,5 +30,6 @@ export class SideMenuOptionsComponent {
       subLabel: 'Search gifs',
       route: '/dashboard/search'
     }
-  ]
+  ];
+
 }
